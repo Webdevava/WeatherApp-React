@@ -73,7 +73,7 @@ const Weather = () => {
       return rainImage;
     } else if (description.includes("snow")) {
       return snowImage;
-    } else if (description.includes("humidity")) {
+    } else if (description.includes("haze")) {
       return humidityImage;
     } else if (description.includes("drizzle")) {
       return drizzleImage;
