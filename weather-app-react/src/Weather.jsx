@@ -111,40 +111,43 @@ const Weather = () => {
   };
 
   return (
-    <div className="container">
-      {isLoading ? (
-        <div class="loader">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </div>
-      ) : (
-        <React.Fragment>
-          {weatherData ? (
-            <div className="weather-details">
-              <h2>{weatherData.name}</h2>
-              <img
-                src={selectWeatherImage(weatherData.weather[0].description)}
-                alt={weatherData.weather[0].description}
-              />
-              <p>Temperature: {weatherData.main.temp}°C</p>
-              <p>Description: {weatherData.weather[0].description}</p>
-            </div>
-          ) : (
-            errorMessage
-          )}
-          <form onSubmit={handleFormSubmit}>
+    <React.Fragment>
+      <h1>Weather App</h1>
+      <div className="container">
+        {isLoading ? (
+          <div class="loader">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        ) : (
+          <React.Fragment>
+            {weatherData ? (
+              <div className="weather-details">
+                <h2>{weatherData.name}</h2>
+                <img
+                  src={selectWeatherImage(weatherData.weather[0].description)}
+                  alt={weatherData.weather[0].description}
+                />
+                <p>Temperature: {weatherData.main.temp}°C</p>
+                <p>Description: {weatherData.weather[0].description}</p>
+              </div>
+            ) : (
+              errorMessage
+            )}
+            <form onSubmit={handleFormSubmit}>
               <input
                 type="text"
                 placeholder="Enter location"
                 value={location}
                 onChange={handleLocationChange}
               />
-            <button type="submit">Search</button>
-          </form>
-        </React.Fragment>
-      )}
-    </div>
+              <button type="submit">Search</button>
+            </form>
+          </React.Fragment>
+        )}
+      </div>
+    </React.Fragment>
   );
 };
 
