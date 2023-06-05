@@ -122,7 +122,14 @@ const Weather = () => {
           </div>
         ) : (
           <React.Fragment>
-            {weatherData ? (
+              {isLoading ? (
+          <div class="loader">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+            </div>
+            ) :(
+              {weatherData ? (
               <div className="weather-details">
                 <h2>{weatherData.name}</h2>
                 <img
@@ -135,6 +142,7 @@ const Weather = () => {
             ) : (
               errorMessage
             )}
+            )
             <form onSubmit={handleFormSubmit}>
               <input
                 type="text"
